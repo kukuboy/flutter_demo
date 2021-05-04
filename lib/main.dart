@@ -1,11 +1,13 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart'; // 此行代码作用是导入了Material UI组件库。Material (opens new window)是一种标准的移动端和web端的视觉设计语言， Flutter默认提供了一套丰富的Material风格的UI组件。
 
+// 在入口中启动应用
 void main() {
   runApp(MyApp());
 }
-
+//继承无状态widget
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
+//  构建页面
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -20,13 +22,14 @@ class MyApp extends StatelessWidget {
         // or simply save your changes to "hot reload" in a Flutter IDE).
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.red,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      // 应用页面首页
+      home: MyHomePage(title: '首页'),
     );
   }
 }
-
+//首页
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
 
@@ -58,7 +61,7 @@ class _MyHomePageState extends State<MyHomePage> {
       _counter+=2;
     });
   }
-
+//构建函数
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -67,12 +70,15 @@ class _MyHomePageState extends State<MyHomePage> {
     // The Flutter framework has been optimized to make rerunning build methods
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
+    // 页面脚手架
     return Scaffold(
+      // 页头
       appBar: AppBar(
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
       ),
+      // 内容
       body: Center(
         // Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.
@@ -103,6 +109,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
       ),
+      // 右下角按钮
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
         tooltip: 'Increment',
