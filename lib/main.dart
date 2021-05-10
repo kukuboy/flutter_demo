@@ -47,7 +47,7 @@ class MyHomePage extends StatefulWidget {
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
-
+//页面函数
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
 
@@ -58,9 +58,10 @@ class _MyHomePageState extends State<MyHomePage> {
       // so that the display can reflect the updated values. If we changed
       // _counter without calling setState(), then the build method would not be
       // called again, and so nothing would appear to happen.
-      _counter+=2;
+      _counter += 2;
     });
   }
+
 //构建函数
   @override
   Widget build(BuildContext context) {
@@ -104,8 +105,19 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             Text(
               '$_counter',
-              style: Theme.of(context).textTheme.headline4,
+              style: Theme
+                  .of(context)
+                  .textTheme
+                  .headline4,
             ),
+            TextButton(
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return NewRoute();
+                }));
+              },
+              child: Text("open new route"),
+            )
           ],
         ),
       ),
@@ -115,6 +127,20 @@ class _MyHomePageState extends State<MyHomePage> {
         tooltip: 'Increment',
         child: Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
+    );
+  }
+}
+
+class NewRoute extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+          title: Text("New Route")
+      ),
+      body: Center(
+        child: Text("This is a new route"),
+      ),
     );
   }
 }
